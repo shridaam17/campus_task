@@ -1118,3 +1118,70 @@ body {
     color: var(--text-faint);
     opacity: 0.7;
 }
+
+.task-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.task-title > span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.edit-task-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--primary-dark);
+    box-shadow:
+        3px 3px 6px var(--shadow-dark),
+        -3px -3px 6px var(--shadow-light);
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.edit-task-btn:hover {
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.edit-task-btn:active {
+    box-shadow:
+        inset 2px 2px 4px var(--shadow-dark),
+        inset -2px -2px 4px var(--shadow-light);
+    transform: translateY(0);
+}
+
+.edit-task-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.priority-high {
+    color: var(--danger);
+}
+
+.priority-medium {
+    color: var(--warning);
+}
+
+.priority-low {
+    color: var(--success);
+}
+
+.empty-state {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-light);
+}
