@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusFlow</title>
+
+
+    <!-- Inter Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="app">
+
+
+        <!-- =========================================
+             SIDEBAR
+        ========================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- Logo -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    C
+                </div>
+
+                <div>
+                    <h1>
+                        Campus<span>Flow</span>
+                    </h1>
+
+                    <p>
+                        Student Workspace
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Navigation -->
+
+            <nav class="navigation">
+
+                <p class="nav-title">
+                    WORKSPACE
+                </p>
+
+
+                <a href="#" class="nav-link active">
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-house"></i>
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a href="#" class="nav-link">
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-list-check"></i>
+                    </span>
+
+                    <span>
+                        My Tasks
+                    </span>
+
+                </a>
+
+
+                <a href="#" class="nav-link">
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </span>
+
+                    <span>
+                        Upcoming
+                    </span>
+
+                </a>
+
+
+                <a href="#" class="nav-link">
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </span>
+
+                    <span>
+                        Completed
+                    </span>
+
+                </a>
+
+
+                <p class="nav-title">
+                    COLLEGE
+                </p>
+
+
+                <a href="#" class="nav-link">
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-book"></i>
+                    </span>
+
+                    <span>
+                        Subjects
+                    </span>
+
+                </a>
+
+
+                <a href="#" class="nav-link">
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </span>
+
+                    <span>
+                        Calendar
+                    </span>
+
+                </a>
+
+            </nav>
+
+
+            <!-- Profile -->
+
+            <div class="sidebar-bottom">
+
+                <div class="profile">
+
+                    <div class="avatar">
+                        SG
+                    </div>
+
+                    <div>
+                        <h4>
+                            Shridaam Gautam
+                        </h4>
+
+                        <p>
+                            Student
+                        </p>
+                    </div>
+
+                    <button class="more-btn">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =========================================
+             MAIN
+        ========================================== -->
+
+        <main class="main">
+
+
+            <!-- Header -->
+
+            <header class="header">
+
+                <div>
+
+                    <p class="greeting">
+                        Good afternoon 👋
+                    </p>
+
+                    <h2>
+                        Dashboard
+                    </h2>
+
+                </div>
+
+
+                <div class="header-actions">
+
+
+                    <!-- Notification -->
+
+                    <button
+                        class="icon-btn"
+                        title="Notifications"
+                    >
+                        <i class="fa-regular fa-bell"></i>
+                    </button>
+
+
+                    <!-- Add Task -->
+
+                    <button class="add-task-btn">
+
+                        <span>
+                            +
+                        </span>
+
+                        Add Task
+
+                    </button>
+
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =========================================
+                 STATISTICS
+            ========================================== -->
+
+            <section class="stats">
+
+
+                <!-- Total Tasks -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <p>
+                            Total Tasks
+                        </p>
+
+                        <span class="stat-icon green">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </span>
+
+                    </div>
+
+                    <h3 id="totalTasks">
+                        0
+                    </h3>
+
+                    <p class="stat-description">
+                        Tasks in your workspace
+                    </p>
+
+                </div>
+
+
+
+                <!-- Completed -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <p>
+                            Completed
+                        </p>
+
+                        <span class="stat-icon blue">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                    </div>
+
+                    <h3 id="completedTasks">
+                        0
+                    </h3>
+
+                    <p class="stat-description">
+                        Tasks completed
+                    </p>
+
+                </div>
+
+
+
+                <!-- Pending -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <p>
+                            Pending
+                        </p>
+
+                        <span class="stat-icon yellow">
+                            <i class="fa-regular fa-clock"></i>
+                        </span>
+
+                    </div>
+
+                    <h3 id="pendingTasks">
+                        0
+                    </h3>
+
+                    <p class="stat-description">
+                        Tasks waiting for you
+                    </p>
+
+                </div>
+
+
+
+                <!-- Overdue -->
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+
+                        <p>
+                            Overdue
+                        </p>
+
+                        <span class="stat-icon red">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </span>
+
+                    </div>
+
+                    <h3 id="overdueTasks">
+                        0
+                    </h3>
+
+                    <p class="stat-description">
+                        Need your attention
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================================
+                 TASK SECTION
+            ========================================== -->
+
+            <section class="tasks-section">
+
+
+                <!-- Section Header -->
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            My Tasks
+                        </h2>
+
+                        <p>
+                            Manage your college work and deadlines.
+                        </p>
+
+                    </div>
+
+
+                    <button class="view-btn">
+                        View all →
+                    </button>
+
+                </div>
+
+
+
+                <!-- Filters -->
+
+                <div class="controls">
+
+
+                    <!-- Search -->
+
+                    <div class="search-box">
+
+                        <span>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search tasks..."
+                        >
+
+                    </div>
+
+
+
+                    <!-- Subject -->
+
+                    <select id="subjectFilter">
+
+                        <option value="">
+                            All Subjects
+                        </option>
+
+                        <option value="DSA">
+                            DSA
+                        </option>
+
+                        <option value="DBMS">
+                            DBMS
+                        </option>
+
+                        <option value="JavaScript">
+                            JavaScript
+                        </option>
+
+                        <option value="Maths">
+                            Maths
+                        </option>
+
+                    </select>
+
+
+
+                    <!-- Priority -->
+
+                    <select id="priorityFilter">
+
+                        <option value="">
+                            All Priorities
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+
+                <!-- =========================================
+                     TASK LIST
+                ========================================== -->
+
+                <div class="task-container">
+
+
+                    <!-- Table Header -->
+
+                    <div class="task-header">
+
+                        <span>
+                            Task
+                        </span>
+
+                        <span>
+                            Subject
+                        </span>
+
+                        <span>
+                            Due Date
+                        </span>
+
+                        <span>
+                            Priority
+                        </span>
+
+                        <span>
+                            Status
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- Tasks -->
+
+                    <div id="taskList">
+
+
+                        <!-- Empty State -->
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+
+                                <i class="fa-solid fa-clipboard-list"></i>
+
+                            </div>
+
+                            <h3>
+                                No tasks yet
+                            </h3>
+
+                            <p>
+                                Add your first task to get started.
+                            </p>
+
+                            <button class="empty-add-btn">
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                Add your first task
+
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
