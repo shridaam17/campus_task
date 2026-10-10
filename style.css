@@ -1112,3 +1112,9 @@ body {
 .task-title input:hover {
     transform: scale(1.06);
 }
+
+.task-title span.completed {
+    text-decoration: line-through;
+    color: var(--text-faint);
+    opacity: 0.7;
+}

@@ -36,6 +36,7 @@ const overdueTasks = document.getElementById("overdueTasks");
 
 
 
+
 function renderTasks() {
     taskList.innerHTML = tasks.map(function (task) {
         return `
@@ -46,7 +47,9 @@ function renderTasks() {
                         data-id="${task.id}"
                         ${task.completed ? "checked" : ""}
                     >
-                    <span>${task.title}</span>
+                    <span class="${task.completed ? "completed" : ""}">
+                        ${task.title}
+                    </span>
                 </div>
 
                 <span>${task.subject}</span>
@@ -57,6 +60,7 @@ function renderTasks() {
         `;
     }).join("");
 }
+
 
 taskList.addEventListener("change", function (event) {
     if (event.target.type === "checkbox") {
