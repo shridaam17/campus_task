@@ -84,6 +84,9 @@ function escapeHTML(value) {
     })[character]);
 }
 
+
+
+
 function renderTasks() {
     const searchText = searchInput.value.trim().toLowerCase();
     const selectedSubject = subjectFilter.value;
@@ -218,10 +221,10 @@ function editTask(taskId) {
         alert("Enter the date in YYYY-MM-DD format, e.g. 2026-10-12.");
         return;
     }
-    
+
     const [year, month, day] = dateParts;
     const parsedDate = new Date(year, month - 1, day);
-    
+
     if (
         parsedDate.getFullYear() !== year ||
         parsedDate.getMonth() !== month - 1 ||
@@ -299,3 +302,82 @@ priorityFilter.addEventListener("change", renderTasks);
 // Initial display.
 renderTasks();
 updateStats();
+
+function loadTasksFromAPI() {
+    fetch("https://jsonplaceholder.typicode.com/todos?_limit=8")
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Failed to load tasks");
+            }
+
+            return response.json();
+        })
+        .then(function (data) {
+            // Remember the titles already saved in CampusFlow.
+            const existingTitles = new Set(
+                tasks.map(function (task) {
+                    return task.title.trim().toLowerCase();
+                })
+            );
+
+            // Remember API IDs from previous imports.
+            const existingApiIds = new Set(
+                tasks
+                    .map(function (task) {
+                        return task.apiId;
+                    })
+                    .filter(function (id) {
+                        return id !== undefined;
+                    })
+            );
+
+            // Keep only tasks that haven't already been imported.
+            const newItems = data.filter(function (item) {
+                const title = item.title.trim().toLowerCase();
+
+                if (
+                    existingApiIds.has(item.id) ||
+                    existingTitles.has(title)
+                ) {
+                    return false;
+                }
+
+                // Track each accepted task immediately.
+                existingApiIds.add(item.id);
+                existingTitles.add(title);
+
+                return true;
+            });
+
+            const importedTasks = newItems.map(function (item, index) {
+                const dueDate = new Date();
+                dueDate.setDate(dueDate.getDate() + index + 1);
+
+                const year = dueDate.getFullYear();
+                const month = String(dueDate.getMonth() + 1).padStart(2, "0");
+                const day = String(dueDate.getDate()).padStart(2, "0");
+
+                return {
+                    id: Date.now() + index,
+                    apiId: item.id,
+                    title: item.title,
+                    subject: ["DSA", "DBMS", "JavaScript", "Maths"][index % 4],
+                    dueDate: `${year}-${month}-${day}`,
+                    priority: ["High", "Medium", "Low"][index % 3],
+                    completed: item.completed
+                };
+            });
+
+            tasks.push(...importedTasks);
+
+            saveTasks();
+            renderTasks();
+            updateStats();
+
+            console.log("New API tasks imported:", importedTasks.length);
+        })
+        .catch(function (error) {
+            console.error("Something went wrong:", error);
+        });
+}
+loadTasksFromAPI();

@@ -1185,3 +1185,9 @@ body {
     text-align: center;
     color: var(--text-light);
 }
+
+#apiStatus {
+    color: var(--text-light);
+    font-size: 13px;
+    margin: 8px 0 14px;
+}
